@@ -1,67 +1,73 @@
 "use client";
-import React, { useState } from 'react';
-import Link from 'next/link';
-import NavLink from './NavLink';
-import { Bars3Icon, XmarkIcon } from "@heroicons/react/24/solid";
+import Link from "next/link";
+import React, { useState } from "react";
+import NavLink from "./NavLink";
+import { Bars3Icon, XMarkIcon } from "@heroicons/react/24/solid";
+import MenuOverlay from "./MenuOverlay";
 
 const navLinks = [
-    {
-        title: "About",
-        path: "#about",
-    },
-    {
-        title: "Projects",
-        path: "#projects",
-    },
-    {
-        title: "Contact",
-        path: "#contact",
-    }
-]
+  { title: "About", path: "#about" },
+  { title: "Projects", path: "#projects" },
+  { title: "Contact", path: "#contact" },
+];
 
-function Navbar() {
-    const [navbarOpen, setNavbarOpen] = useState(false);
+const Navbar = () => {
+  const [navbarOpen, setNavbarOpen] = useState(false);
 
-    return (
-        <nav className="fixed top-0 left-0 right-0 z-10 bg-[#121212] bg-opacity-90">
-            <div className='flex flex-wrap items-center justify-between mx-auto px-4 py-2'>
-                <Link href={"/"} className="text-2xl md:text-5xl text-white font-semibold"
-                >
-                    LOGO
-                </Link>
-                <div className="mobile-menu block md:hidden">
-                    {
-                        navbarOpen ? (
-                            <button
-                                onClick={() => setNavbarOpen(true)}
-                                className='flex items-center px-3 py-2 border rounded border-slate-200 text-slate-200 hover:text-white hover:border-white'
-                            >
-                                <Bars3Icon className="h-5 w-5" />
-                            </button>
-                        ) : (
-                            <button
-                                onClick={() => setNavbarOpen(false)}
-                                className='flex items-center px-3 py-2 border rounded border-slate-200 text-slate-200 hover:text-white hover:border-white'
-                            >
-                                <XmarkIcon className="h-5 w-5" />
-                            </button>
-                        )
-                    }
-                </div>
-                <div className="menu hidden md:block md:w-auto" id="navbar">
-                    <ul className="flex p-4 md:p-0 md:flex-row md:space-x-8 mt-0">
-                        {
-                            navLinks.map((link, index) => (
-                                <li key={index}>
-                                    <NavLink href={link.path} title={link.title} />
-                                </li>
-                            ))
-                        }
-                    </ul>
-                </div>
-            </div>
-        </nav>
-    )
-}
+  return (
+    <nav className="fixed top-0 left-0 right-0 z-50 px-4 py-2 
+      bg-[#000000] border-b border-[#00E6FF] shadow-[0px_0px_15px_#00E6FF] 
+      backdrop-blur-md transition-all duration-300 ease-in-out">
+      
+      <div className="flex container lg:py-4 flex-wrap items-center justify-between mx-auto px-4 py-2">
+        
+        {/* Logo (No Hover/Glow) */}
+        <Link href={"/"} className="flex items-center space-x-2">
+          <img src="/images/logo.png" alt="Logo" className="h-10 w-10" />
+          <span className="text-2xl md:text-5xl font-semibold 
+            bg-gradient-to-r from-[#00E6FF] to-[#FF0080] bg-clip-text text-transparent 
+            transition-all duration-300 ease-in-out hover:scale-110">
+            Portfolio
+          </span>
+        </Link>
 
-export default Navbar
+        {/* Mobile Menu Button */}
+        <div className="mobile-menu block md:hidden">
+          {!navbarOpen ? (
+            <button
+              onClick={() => setNavbarOpen(true)}
+              className="flex items-center px-3 py-2 border rounded border-[#00E6FF] text-[#00E6FF] 
+              hover:text-[#FF0080] hover:border-[#FF0080] transition-all transform hover:scale-110 duration-300"
+            >
+              <Bars3Icon className="h-6 w-6" />
+            </button>
+          ) : (
+            <button
+              onClick={() => setNavbarOpen(false)}
+              className="flex items-center px-3 py-2 border rounded border-[#FF0080] text-[#FF0080] 
+              hover:text-[#00E6FF] hover:border-[#00E6FF] transition-all transform hover:rotate-180 duration-300"
+            >
+              <XMarkIcon className="h-6 w-6" />
+            </button>
+          )}
+        </div>
+
+        {/* Desktop Menu with Neon Hover */}
+        <div className="menu hidden md:block md:w-auto">
+          <ul className="flex p-4 md:p-0 md:flex-row md:space-x-8 mt-0">
+            {navLinks.map((link, index) => (
+              <li key={index} className="group">
+                <NavLink href={link.path} title={link.title} />
+              </li>
+            ))}
+          </ul>
+        </div>
+      </div>
+
+      {/* Animated Mobile Menu */}
+      {navbarOpen && <MenuOverlay links={navLinks} onClose={() => setNavbarOpen(false)} />}
+    </nav>
+  );
+};
+
+export default Navbar;
