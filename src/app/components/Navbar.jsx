@@ -8,24 +8,25 @@ import MenuOverlay from "./MenuOverlay";
 const navLinks = [
   { title: "About", path: "#about" },
   { title: "Education", path: "#education" },
+  { title: "Experience", path: "#experience" },
   { title: "Projects", path: "#projects" },
   { title: "Contact", path: "#contact" },
 ];
+
 
 const Navbar = () => {
   const [navbarOpen, setNavbarOpen] = useState(false);
 
   return (
     <>
-      <nav className="fixed top-0 left-0 right-0 z-50 px-4 py-2 
+      <nav className="fixed top-0 left-0 right-0 z-50 px-4 py-1 
         bg-[#000000] border-b border-[#00E6FF] shadow-[0px_0px_15px_#00E6FF] 
         transition-all duration-300 ease-in-out">
         
         <div className="flex container lg:py-4 flex-wrap items-center justify-between mx-auto px-4 py-2">
           
           {/* Logo */}
-          <Link href={"/"} className="flex items-center space-x-2">
-            <img src="/images/logo.png" alt="Logo" className="h-10 w-10" />
+          <Link href="/" className="flex items-center space-x-2">
             <span className="text-2xl md:text-5xl font-semibold 
               bg-gradient-to-r from-[#00E6FF] to-[#FF0080] bg-clip-text text-transparent 
               transition-all duration-300 ease-in-out hover:scale-110">
