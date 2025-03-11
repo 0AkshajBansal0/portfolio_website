@@ -69,7 +69,7 @@ const AboutSection = () => {
   const [tab, setTab] = useState("skills");
 
   return (
-    <section className="text-white py-12 px-4 sm:px-8" id="about">
+    <section className="text-white py-20 px-4 sm:px-8" id="about">
       <div className="grid grid-cols-1 md:grid-cols-2 gap-8 items-center max-w-7xl mx-auto">
         <motion.div
           initial={{ scale: 0.8, opacity: 0 }}
