@@ -2,12 +2,9 @@
 import React from "react";
 import dynamic from "next/dynamic";
 
-const AnimatedNumbers = dynamic(
-  () => {
-    return import("react-animated-numbers");
-  },
-  { ssr: false }
-);
+const AnimatedNumbers = dynamic(() => import("react-animated-numbers"), {
+  ssr: false,
+});
 
 const achievementsList = [
   {
@@ -28,35 +25,32 @@ const achievementsList = [
 
 const AchievementsSection = () => {
   return (
-    <div className="py-1 px-3 xl:gap-12 sm:py-12 xl:px-12">
-      <div className="sm:border-[#33353F] sm:border rounded-md py-6 px-12 flex flex-col sm:flex-row items-center justify-between">
-        {achievementsList.map((achievement, index) => {
-          return (
-            <div
-              key={index}
-              className="flex flex-col items-center justify-center mx-3 my-3 sm:my-0"
-            >
-              <h2 className="text-white text-3xl font-bold flex flex-row">
+    <div className="py-8 px-6 sm:py-12 sm:px-12">
+      <div className="border border-[#33353F] rounded-lg py-8 px-6 sm:px-12 flex flex-col items-center">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8 w-full">
+          {achievementsList.map((achievement, index) => (
+            <div key={index} className="flex flex-col items-center text-center">
+              <h2 className="text-white text-3xl sm:text-4xl font-bold flex items-center">
                 {achievement.prefix}
                 <AnimatedNumbers
                   includeComma
                   animateToNumber={parseInt(achievement.value)}
                   locale="en-US"
-                  className="text-white text-3xl font-bold"
-                  configs={(_, index) => {
-                    return {
-                      mass: 1,
-                      friction: 100,
-                      tensions: 140 * (index + 1),
-                    };
-                  }}
+                  className="text-white text-3xl sm:text-4xl font-bold"
+                  configs={(_, index) => ({
+                    mass: 1,
+                    friction: 100,
+                    tensions: 140 * (index + 1),
+                  })}
                 />
                 {achievement.postfix}
               </h2>
-              <p className="text-[#ADB7BE] text-sm">{achievement.metric}</p>
+              <p className="text-[#ADB7BE] text-sm sm:text-base mt-2">
+                {achievement.metric}
+              </p>
             </div>
-          );
-        })}
+          ))}
+        </div>
       </div>
     </div>
   );
