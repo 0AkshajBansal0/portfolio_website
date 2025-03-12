@@ -16,12 +16,13 @@ const TAB_DATA = [
         transition={{ duration: 0.3 }}
         className="list-disc pl-5 text-sm sm:text-base"
       >
-        <li>Machine Learning</li>
-        <li>Computer Vision</li>
-        <li>Python, C++</li>
-        <li>HTML, CSS, JavaScript, React, Express</li>
+        <li>HTML, CSS, JavaScript</li>
+        <li>React.js, Next.js, Express.js</li>
         <li>Firebase</li>
         <li>MySQL, MongoDB</li>
+        <li>Python, C++, Java</li>  
+        <li>Machine Learning</li>
+        <li>Computer Vision</li>
         <li>DSA</li>
       </motion.ul>
     ),
@@ -59,6 +60,7 @@ const TAB_DATA = [
         className="list-disc pl-5 text-sm sm:text-base"
       >
         <li>Department Topper - 1st Sem (10.00 GPA)</li>
+        <li>RedBull Basement Hackathon (Top 23 Finalist)</li>
         <li>Department Topper - 3rd Sem (10.00 GPA)</li>
       </motion.ul>
     ),
