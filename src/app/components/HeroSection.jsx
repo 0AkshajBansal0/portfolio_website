@@ -8,9 +8,9 @@ import { SiLeetcode } from "react-icons/si";
 
 const HeroSection = () => {
     return (
-        <section className="lg:py-16">
+        <section className="lg:py-8">
             <div className="grid grid-cols-1 sm:grid-cols-12">
-                <div className="col-span-8 place-self-center text-center sm:text-left justify-self-start mt-4">
+                <div className="col-span-8 place-self-center text-center sm:text-left justify-self-start mt-2">
                     <h1 className="text-white mb-4 text-4xl sm:text-5xl lg:text-6xl lg:leading-normal font-extrabold">
                         <span className="text-transparent bg-clip-text bg-gradient-to-r from-purple-400 to-pink-600">
                             Hello, I'm{" "}
@@ -36,9 +36,8 @@ const HeroSection = () => {
                         blending creativity and functionality to make an impact.
                     </p>
 
-
                     {/* Social Media Icons */}
-                    <div className="flex justify-center sm:justify-start space-x-6 mt-">
+                    <div className="flex justify-center sm:justify-start space-x-6">
                         <Link
                             href="https://github.com/0AkshajBansal0"
                             target="_blank"
@@ -60,11 +59,10 @@ const HeroSection = () => {
                         >
                             <SiLeetcode className="text-white group-hover:text-yellow-400 transition-all duration-200" />
                         </Link>
-
                     </div>
 
                     {/* Download CV Button */}
-                    <div className="mt-6">
+                    <div className="mt-4">
                         <Link
                             href="https://drive.google.com/file/d/1UXMKwI93KZzFFaj7dfiC8VQTiToJD6O3/view?usp=sharing"
                             className="px-1 inline-block py-1 w-full sm:w-fit rounded-full bg-gradient-to-br from-blue-500 via-purple-500 to-pink-500 hover:bg-slate-800 text-white mt-3 transform transition-all duration-300 ease-in-out hover:scale-105">
@@ -76,7 +74,7 @@ const HeroSection = () => {
                 </div>
 
                 {/* Hero Image */}
-                <div className="col-span-4 place-self-center mt-4 lg:mt-0">
+                <div className="col-span-4 place-self-center mt-2 lg:mt-0">
                     <div className="rounded-full bg-gradient-to-br from-blue-500 via-purple-500 to-pink-500 w-[250px] h-[250px] lg:w-[400px] lg:h-[400px] relative overflow-hidden shadow-lg hover:scale-110 transform transition-all duration-300 ease-in-out">
                         <Image
                             src="/images/hero-image.png"
@@ -86,7 +84,6 @@ const HeroSection = () => {
                             height={300}
                         />
                     </div>
-
                 </div>
             </div>
         </section>
