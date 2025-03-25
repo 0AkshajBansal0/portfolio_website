@@ -7,6 +7,15 @@ import { motion, useInView } from "framer-motion";
 const projectsData = [
   {
     id: 1,
+    title: "DeepTrace",
+    description: "AI-powered system that detects deepfakes and verifies content authenticity across text, images, videos, and metadata. ",
+    image: "/images/projects/DeepTrace.png",
+    tag: ["All", "Full-Stack", "AI-ML"],
+    gitUrl: "https://github.com/0AkshajBansal0/DeepTrace",
+    previewUrl: "https://deep-trace-web.vercel.app/",
+  },
+  {
+    id: 2,
     title: "AI Trip Planner",
     description: "An AI-based planner that generates personalized travel itineraries.",
     image: "/images/projects/1.png",
@@ -15,7 +24,7 @@ const projectsData = [
     previewUrl: "https://ai-trip-plannerakshaj.vercel.app",
   },
   {
-    id: 2,
+    id: 3,
     title: "KrishiConnect",
     description: "Connecting farmers, crop prediction, ensuring fair prices, real-time weather updates, market insights.",
     image: "/images/projects/2.png",
@@ -24,7 +33,7 @@ const projectsData = [
     previewUrl: "https://github.com/0AkshajBansal0/Hackathon--HotC",
   },
   {
-    id: 3,
+    id: 4,
     title: "Path Finding Visualizer",
     description: "A visual representation of pathfinding algorithms like Dijkstra, BFS, DFS & A*.",
     image: "/images/projects/3.png",
@@ -33,7 +42,7 @@ const projectsData = [
     previewUrl: "https://pathfinding-visualizer-akshaj.vercel.app",
   },
   {
-    id: 4,
+    id: 5,
     title: "Weather Forecast Website",
     description: "A real-time weather forecasting web app that provides accurate weather conditions and predictions for any location worldwide.",
     image: "/images/projects/4.png",
@@ -42,7 +51,7 @@ const projectsData = [
     previewUrl: "https://0akshajbansal0.github.io/Weather_Cast",
   },
   {
-    id: 5,
+    id: 6,
     title: "Netflix Clone",
     description: "A Netflix clone with a sleek UI, dynamic content, and smooth hover animations for an immersive experience.",
     image: "/images/projects/5.png",
