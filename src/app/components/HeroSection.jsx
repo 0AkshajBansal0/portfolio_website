@@ -64,7 +64,7 @@ const HeroSection = () => {
                     {/* Download CV Button */}
                     <div className="mt-4">
                         <Link
-                            href="https://drive.google.com/file/d/1UXMKwI93KZzFFaj7dfiC8VQTiToJD6O3/view?usp=sharing"
+                            href="https://drive.google.com/file/d/1DJhMnacMfbnwk9AKRtyGqbR9wnYgAJzi/view?usp=sharing"
                             className="px-1 inline-block py-1 w-full sm:w-fit rounded-full bg-gradient-to-br from-blue-500 via-purple-500 to-pink-500 hover:bg-slate-800 text-white mt-3 transform transition-all duration-300 ease-in-out hover:scale-105">
                             <span className="block bg-[#121212] hover:bg-slate-800 rounded-full px-5 py-2">
                                 Download CV
