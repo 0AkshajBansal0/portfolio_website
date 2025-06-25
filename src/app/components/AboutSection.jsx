@@ -1,4 +1,5 @@
 "use client";
+
 import React, { useState } from "react";
 import Image from "next/image";
 import { motion, AnimatePresence } from "framer-motion";
@@ -10,6 +11,7 @@ const TAB_DATA = [
     id: "skills",
     content: (
       <motion.ul
+        key="skills"
         initial={{ opacity: 0, y: 10 }}
         animate={{ opacity: 1, y: 0 }}
         exit={{ opacity: 0, y: -10 }}
@@ -20,7 +22,7 @@ const TAB_DATA = [
         <li>React.js, Next.js, Express.js</li>
         <li>Firebase</li>
         <li>MySQL, MongoDB</li>
-        <li>Python, C++, Java</li>  
+        <li>Python, C++, Java</li>
         <li>Machine Learning</li>
         <li>Computer Vision</li>
         <li>DSA</li>
@@ -32,6 +34,7 @@ const TAB_DATA = [
     id: "certifications",
     content: (
       <motion.ul
+        key="certifications"
         initial={{ opacity: 0, y: 10 }}
         animate={{ opacity: 1, y: 0 }}
         exit={{ opacity: 0, y: -10 }}
@@ -53,6 +56,7 @@ const TAB_DATA = [
     id: "achievements",
     content: (
       <motion.ul
+        key="achievements"
         initial={{ opacity: 0, y: 10 }}
         animate={{ opacity: 1, y: 0 }}
         exit={{ opacity: 0, y: -10 }}
@@ -70,9 +74,11 @@ const TAB_DATA = [
 const AboutSection = () => {
   const [tab, setTab] = useState("skills");
 
+  const currentTabContent = TAB_DATA.find((t) => t.id === tab)?.content;
+
   return (
     <section className="text-white py-20 px-4 sm:px-8" id="about">
-      <div className="grid grid-cols-1 md:grid-cols-2 gap-8 items-center max-w-7xl mx-auto">
+      <div className="grid grid-cols-1 md:grid-cols-2 gap-12 items-center max-w-7xl mx-auto">
         <motion.div
           initial={{ scale: 0.8, opacity: 0 }}
           animate={{ scale: 1, opacity: 1 }}
@@ -83,19 +89,21 @@ const AboutSection = () => {
             src="/images/about-image.jpg"
             width={500}
             height={500}
-            alt="About Me"
+            alt="Portrait of Akshaj Bansal"
             className="rounded-lg shadow-lg w-64 h-64 sm:w-80 sm:h-80 md:w-96 md:h-96 object-cover"
+            priority
           />
         </motion.div>
 
         <div className="mt-6 md:mt-0">
           <h2 className="text-3xl sm:text-4xl font-bold text-white mb-4">About Me</h2>
           <p className="text-sm sm:text-base lg:text-lg text-gray-300 leading-relaxed">
-            I am a budding Software Engineer passionate about building interactive applications and solving real-world problems. Proficient in HTML, CSS, JavaScript, React, Firebase, and Python, with experience in C++, AI/ML, Computer Vision, and DSA. I have solved 100+ DSA problems across platforms like LeetCode, GFG, and HackerRank. Skilled in Git, GitHub, and database management, with certifications in DBMS, Java, and cloud computing.
+            I am a budding Software Engineer passionate about building interactive applications and solving real-world problems.
+            Proficient in HTML, CSS, JavaScript, React, Firebase, and Python, with experience in C++, AI/ML, Computer Vision, and DSA.
+            I have solved 100+ DSA problems across platforms like LeetCode, GFG, and HackerRank. Skilled in Git, GitHub, and database management, with certifications in DBMS, Java, and cloud computing.
           </p>
 
-          {/* Tab Buttons */}
-          <div className="flex flex-wrap justify-start mt-6 space-x-4">
+          <div className="flex flex-wrap gap-4 mt-6">
             {TAB_DATA.map((tabItem) => (
               <TabButton
                 key={tabItem.id}
@@ -107,10 +115,9 @@ const AboutSection = () => {
             ))}
           </div>
 
-          {/* Tab Content */}
-          <div className="mt-6">
+          <div className="mt-6 min-h-[150px]">
             <AnimatePresence mode="wait">
-              {TAB_DATA.find((t) => t.id === tab)?.content}
+              {React.cloneElement(currentTabContent, { key: tab })}
             </AnimatePresence>
           </div>
         </div>
