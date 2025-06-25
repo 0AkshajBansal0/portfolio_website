@@ -1,17 +1,30 @@
+// app/components/NavLink.jsx
 import Link from "next/link";
 
-const NavLink = ({ href, title }) => {
+const NavLink = ({ href, title, onClick }) => {
   return (
     <Link
       href={href}
-      className="relative block py-2 px-4 text-[#ADB7BE] sm:text-xl rounded md:p-0 
-      hover:text-[#00E6FF] transition-all duration-300 ease-in-out 
-      before:absolute before:bottom-0 before:left-0 before:w-0 before:h-[3px] 
-      before:bg-gradient-to-r from-[#00E6FF] to-[#FF0080] before:transition-all before:duration-300 
-      hover:before:w-full before:rounded-lg 
-      group-hover:scale-110"
+      onClick={onClick}
+      className="
+        group relative block py-2 px-4 sm:text-xl rounded md:p-0
+        text-[#ADB7BE] transition-all duration-300 ease-in-out
+        hover:text-[#00E6FF] transform
+      "
     >
       {title}
+
+      {/* Gradient underline animation */}
+      <span
+        className="
+          pointer-events-none absolute bottom-0 left-0 h-[3px] w-0
+          rounded-lg transition-all duration-300
+          group-hover:w-full
+          before:content-[''] before:absolute before:inset-0
+          before:bg-gradient-to-r before:from-[#00E6FF] before:to-[#FF0080]
+          before:rounded-lg before:w-full
+        "
+      />
     </Link>
   );
 };
